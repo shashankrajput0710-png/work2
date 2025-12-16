@@ -67,7 +67,47 @@
             <button class="btn btn-love" onclick="closePopup('bangPopup')">Close</button>
         </div>
     </div>
+<!-- When she clicks Nothing -->
+<div class="popup" id="nothingPopup">
+  <div class="popup-content">
+    <h3>Nothing? Really? 😒</h3>
+    <p>Jaan, agar tum kuch nahi logi, toh ek hidden option open ho chuka hai… 💍</p>
+    <p>Scroll in shop and see something special called “Life with me” 👀</p>
+    <button class="btn btn-love" onclick="closePopup('nothingPopup')">Okay, let me see ➜</button>
+  </div>
+</div>
+
+<!-- She chose Life with me with all hearts saved -->
+<div class="popup" id="lifeLovePopup">
+  <div class="popup-content">
+    <h3>Life with me unlocked 💍</h3>
+    <p>btao pkka n khi fr khoo gussa krta h ye vo, huh 😤</p>
+    <p>i lovee uhh so muchh merii wyfuu, tu meri hamesha wali jaan h 💕</p>
+    <p>ab se sab attachments free – only for you, forever.</p>
+    <button class="btn btn-love" onclick="proceedLifeMode()">Proceed ➜ Attachments for life</button>
+  </div>
+</div>
+
+<!-- She tried Life with me after spending hearts -->
+<div class="popup" id="retryPopup">
+  <div class="popup-content">
+    <h3>Arreee gulu gullu 😅</h3>
+    <p>udaa diye saare gulu gullu uhi , koi n a retry for my baby 💕</p>
+    <p>Thoda aur hearts kamao, phir se try karo “Life with me” proper se 😘</p>
+    <button class="btn btn-love" onclick="retryReshop()">Reshop / Try again</button>
+  </div>
+</div>
+
+<!-- When in lifeMode and she buys any attachment -->
+<div class="popup" id="lifeFreePopup">
+  <div class="popup-content">
+    <h3>Attachment added for life 📎💕</h3>
+    <p>Ab sab kisses, hugs, bang bang, rides, movies, adventures – sab free, sirf tumhare naam pe 😘</p>
+    <button class="btn btn-love" onclick="closePopup('lifeFreePopup')">Okay my jaan 💖</button>
+  </div>
+</div>
 
     <script src="assets/app.js"></script>
 </body>
 </html>
+
