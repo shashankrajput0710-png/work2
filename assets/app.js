@@ -28,6 +28,35 @@ function createHeart() {
 }
 setInterval(createHeart, 300);
 
+// ===== PHOTOS (MEMORIES) GALLERY =====
+const photos = [
+    { src: 'assets/images/photo1.jpg', caption: 'Our first smile together 😍' },
+    { src: 'assets/images/photo2.jpg', caption: 'Cute café date ☕💕' },
+    { src: 'assets/images/photo3.jpg', caption: 'Me hugging you, my jaan 🤗' },
+    { src: 'assets/images/photo4.jpg', caption: 'Your cutest selfie 🥰' },
+    { src: 'assets/images/photo5.jpg', caption: 'That special moment we love 💖' },
+    { src: 'assets/images/photo6.jpg', caption: 'Crazy fun together 😜' },
+    { src: 'assets/images/photo7.jpg', caption: 'Soft romantic vibe 🌙' },
+    { src: 'assets/images/photo8.jpg', caption: 'Future – me & you forever 💍' }
+];
+
+function loadPhotos() {
+    const grid = document.getElementById('photoGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    photos.forEach((photo, index) => {
+        const polaroid = document.createElement('div');
+        polaroid.className = 'polaroid';
+        polaroid.innerHTML = `
+            <img src="${photo.src}" alt="Memory ${index+1}"
+                 onerror="this.src='https://via.placeholder.com/300x250/ff69b4/ffffff?text=💕'">
+            <div class="polaroid-caption">${photo.caption}</div>
+        `;
+        polaroid.onclick = () => { if (typeof launchHearts === 'function') launchHearts(10); };
+        grid.appendChild(polaroid);
+    });
+}
+
 // ===== LOVE MAP =====
 function showLoveMap() {
     const canvas = document.getElementById('loveMap');
@@ -478,4 +507,5 @@ document.addEventListener('DOMContentLoaded', () => {
         initMemoryGame();
     }
 });
+
 
