@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Quiz 💖 | Me → You</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="erotic-bg">
+    <!-- Floating hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Hearts counter -->
+    <div class="hearts-counter">
+        Your Hearts: <span id="heartsCount">0</span> 💖
+    </div>
+
+    <!-- Back nav -->
+    <div class="nav">
+        <a href="index.html" class="btn btn-back">⬅ Back to Journey</a>
+        <a href="shop.html" class="btn btn-shop">Love Shop 🛒</a>
+    </div>
+
+    <!-- Quiz content -->
+    <div class="quiz-container">
+        <h1 class="love-title">Our Love Quiz 💕</h1>
+        <p class="quiz-subtitle">
+            20 questions about us. Every right answer = 1 heart for you 💖
+        </p>
+
+        <!-- Progress bar -->
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <!-- Start screen -->
+        <div id="questionBox">
+            <h2>Ready to test how well you know me? 😘</h2>
+            <button class="btn btn-love btn-large" onclick="startQuiz()">
+                Start Quiz Now 💘
+            </button>
+        </div>
+
+        <!-- Active quiz -->
+        <div id="quizActive" style="display:none;">
+            <div id="question"></div>
+            <div id="options"></div>
+            <button id="nextBtn" class="btn btn-love" style="display:none;" onclick="nextQuestion()">
+                Next Question ➜
+            </button>
+        </div>
+
+        <!-- Completion screen -->
+        <div id="quizComplete" style="display:none;">
+            <h2 class="love-title">Quiz Finished 🎉</h2>
+            <p>You now have total hearts: <span id="finalScore"></span> 💖</p>
+            <a href="shop.html" class="btn btn-love btn-large">Go to Love Shop 🛒</a>
+            <a href="index.html" class="btn btn-back">Back to Journey 🗺️</a>
+        </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

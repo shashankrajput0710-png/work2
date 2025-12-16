@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Me → You | Love Journey ❤️</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="erotic-bg">
+    <!-- Floating hearts container -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Hearts counter -->
+    <div class="hearts-counter">
+        Your Hearts: <span id="heartsCount">0</span> 💖
+    </div>
+
+    <!-- Hero / Home -->
+    <div class="hero">
+        <h1 class="love-title">Me → You</h1>
+        <p class="love-subtitle">Our Forever Love Journey 💕</p>
+
+        <div class="journey-buttons">
+            <a href="quiz.html" class="btn btn-love">
+                💖 Love Quiz (20 Qs) – Earn Hearts
+            </a>
+            <a href="memory-game.html" class="btn btn-game">
+                🧠 Memory Match – Photo Game
+            </a>
+            <a href="photos.html" class="btn btn-photos">
+                📸 Our Memories (Photos + Songs)
+            </a>
+            <a href="#" onclick="showLoveMap()" class="btn btn-map">
+                🗺️ Love Map Adventure
+            </a>
+            <a href="shop.html" class="btn btn-shop">
+                🛒 Love Shop – Spend Hearts
+            </a>
+        </div>
+
+        <div class="quick-stats">
+            <span>❤️ Total Hearts: <span id="totalHearts">0</span></span>
+            <span>🎮 Play all games to unlock everything</span>
+        </div>
+    </div>
+
+    <!-- Love Map Canvas -->
+    <canvas id="loveMap" width="900" height="400" style="display:none;"></canvas>
+
+    <!-- Shayari Popup -->
+    <div class="shayari-popup" id="shayariPopup">
+        <div class="shayari-content">
+            <h2>तेरे दीदार से मिलती है खुशी इस दिल को 💝</h2>
+            <p class="shayari-sub">
+                Me to you: mera dil sirf tere naam se dhadakta hai 💕
+            </p>
+            <button class="btn btn-love" onclick="closeShayari()">
+                Continue Our Journey ➜
+            </button>
+        </div>
+    </div>
+
+    <!-- Main JS -->
+    <script src="assets/app.js"></script>
+</body>
+</html>

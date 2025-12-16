@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love Shop 🛒 | Me → You</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="erotic-bg">
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="hearts-counter">
+        Your Hearts: <span id="heartsCount">0</span> 💖
+    </div>
+
+    <div class="nav">
+        <a href="index.html" class="btn btn-back">⬅ Back to Journey</a>
+    </div>
+
+    <div class="shop-container">
+        <h1 class="love-title">Love Shop 🛒</h1>
+        <p class="shop-subtitle">
+            Spend your hearts to unlock my love for you 💕
+        </p>
+
+        <div class="hearts-display">
+            Available: <span id="currentHearts">0</span> 💖
+        </div>
+
+        <div class="shop-items" id="shopItems">
+            <!-- items created by app.js / initShop() -->
+        </div>
+    </div>
+
+    <!-- Kiss popup -->
+    <div class="popup" id="kissPopup">
+        <div class="popup-content">
+            <h3>10 Kisses Unlocked 😘</h3>
+            <p>All reserved only for you, my jaan 💕</p>
+            <div class="kiss-animation">💋💋💋💋💋</div>
+            <button class="btn btn-love" onclick="closePopup('kissPopup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Hug popup -->
+    <div class="popup" id="hugPopup">
+        <div class="popup-content">
+            <h3>Warm Hugs Unlocked 🤗</h3>
+            <p>Me holding you tight, meri wyfuu 🥰</p>
+            <div class="hug-animation">🤗🤗🤗🤗🤗</div>
+            <button class="btn btn-love" onclick="closePopup('hugPopup')">Close</button>
+        </div>
+    </div>
+
+    <!-- Bang bang popup (positions text only) -->
+    <div class="popup" id="bangPopup">
+        <div class="popup-content">
+            <h3>Bang Bang Time 🔥</h3>
+            <p>For me & you only 😈</p>
+            <div class="positions">
+                <p>1️⃣ Missionary – soft eye contact, pure love 💕</p>
+                <p>2️⃣ Spooning – cozy cuddle from behind 🥄</p>
+                <p>3️⃣ Cowgirl – you on top, my queen 👑</p>
+            </div>
+            <button class="btn btn-love" onclick="closePopup('bangPopup')">Close</button>
+        </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

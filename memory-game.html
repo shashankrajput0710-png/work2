@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Match 🧠 | Me → You</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="erotic-bg">
+    <!-- Floating hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Hearts counter -->
+    <div class="hearts-counter">
+        Your Hearts: <span id="heartsCount">0</span> 💖
+    </div>
+
+    <!-- Back nav -->
+    <div class="nav">
+        <a href="index.html" class="btn btn-back">⬅ Back to Journey</a>
+        <a href="shop.html" class="btn btn-shop">Go to Love Shop 🛒</a>
+    </div>
+
+    <!-- Game content -->
+    <div class="game-container">
+        <h1 class="love-title">Memory Match Game 🧠</h1>
+        <p class="game-subtitle">
+            Flip the cards, find matching photos of us, and earn hearts 💕
+        </p>
+
+        <div class="game-stats">
+            <div>⏱ Time: <span id="timer">0</span>s</div>
+            <div>🔁 Moves: <span id="moves">0</span></div>
+            <div>💞 Matches: <span id="matches">0/8</span></div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+            <!-- 16 cards are created by app.js (newGame / initMemoryGame) -->
+        </div>
+
+        <div class="game-buttons">
+            <button class="btn btn-love btn-large" onclick="newGame()">New Game 🔄</button>
+            <span style="display:block; margin-top:10px;">
+                Hearts after matches: <span id="earnedHearts">0</span> 💖
+            </span>
+        </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>

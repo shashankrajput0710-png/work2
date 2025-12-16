@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Memories 📸 | Me → You</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body class="erotic-bg">
+    <!-- Floating hearts -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Hearts counter -->
+    <div class="hearts-counter">
+        Your Hearts: <span id="heartsCount">0</span> 💖
+    </div>
+
+    <!-- Nav -->
+    <div class="nav">
+        <a href="index.html" class="btn btn-back">⬅ Back to Journey</a>
+        <a href="memory-game.html" class="btn btn-game">Memory Game 🧠</a>
+        <a href="shop.html" class="btn btn-shop">Love Shop 🛒</a>
+    </div>
+
+    <!-- Photos / Gallery -->
+    <div class="photos-container">
+        <h1 class="love-title">Our Memories 📸</h1>
+        <p class="photo-subtitle">
+            Little pieces of us, saved forever in photos 💕
+        </p>
+
+        <div class="photo-grid" id="photoGrid">
+            <!-- Polaroids are created by app.js (loadPhotos) -->
+        </div>
+    </div>
+
+    <!-- Music player -->
+    <div class="music-player">
+        <audio id="loveSong" loop>
+            <!-- Put your mp3 file in assets/songs/ and update src -->
+            <source src="assets/songs/tumhiho.mp3" type="audio/mpeg" />
+        </audio>
+        <div class="music-controls">
+            <button id="playBtn" onclick="toggleMusic()">▶️ Play Love Song</button>
+            <span id="currentSong">Tum Hi Ho – for you, meri jaan ❤️</span>
+        </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+</body>
+</html>
