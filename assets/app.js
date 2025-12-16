@@ -175,15 +175,143 @@ function nextQuestion() {
     }
 }
 
-// ===== SHOP (BASIC VERSION, WITHOUT NEW NOTHING LOGIC YET) =====
+// ===== SHOP WITH NOTHING + LIFE WITH ME =====
+
+// hearts variable + updateHearts already defined above
+
+let originalHearts = null;   // hearts when she first opens shop
+let lifeMode = false;        // attachments for life mode
+let lifeVisible = false;     // whether Life with me card is shown
+
 const shopItems = [
-    { id: 'kiss',  name: '10 Kisses 😘',        cost: 8,  popup: 'kissPopup' },
-    { id: 'hug',   name: '5 Warm Hugs 🤗',      cost: 5,  popup: 'hugPopup' },
-    { id: 'bang',  name: 'Bang Bang 🔥',        cost: 12, popup: 'bangPopup' },
-    { id: 'ride',  name: 'Ride Date 👑',        cost: 15, popup: 'bangPopup' },
-    { id: 'movie', name: 'Movie Night 🎬',      cost: 10, popup: 'bangPopup' },
-    { id: 'adv',   name: 'Adventure Date 🏞️',  cost: 18, popup: 'bangPopup' }
+    { id: 'kiss',   name: '10 Kisses 😘',       cost: 8,  popup: 'kissPopup' },
+    { id: 'hug',    name: '5 Warm Hugs 🤗',     cost: 5,  popup: 'hugPopup' },
+    { id: 'bang',   name: 'Bang Bang 🔥',       cost: 12, popup: 'bangPopup' },
+    { id: 'ride',   name: 'Ride Date 👑',      cost: 15, popup: 'bangPopup' },
+    { id: 'movie',  name: 'Movie Night 🎬',     cost: 10, popup: 'bangPopup' },
+    { id: 'adv',    name: 'Adventure Date 🏞️', cost: 18, popup: 'bangPopup' },
+    // visible "Nothing" item
+    { id: 'nothing', name: 'Nothing 🙄',        cost: 0,  popup: null },
+    // hidden Life with me item (shown only after clicking Nothing)
+    { id: 'life',   name: 'Life with me 💍',    cost: 'ALL', popup: null }
 ];
+
+function initShop() {
+    if (originalHearts === null) {
+        originalHearts = hearts;   // save hearts when she first opens shop
+    }
+    updateHearts();
+
+    const container = document.getElementById('shopItems');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const subtitle = document.querySelector('.shop-subtitle');
+    if (subtitle) {
+        subtitle.textContent = lifeMode
+            ? 'Buy attachments for life – sab kuch free, sirf tumhare liye 💕'
+            : 'Spend your hearts to unlock my love for you 💕';
+    }
+
+    shopItems.forEach(item => {
+        // hide Life with me until Nothing is clicked
+        if (item.id === 'life' && !lifeVisible) return;
+
+        const div = document.createElement('div');
+        div.className = 'shop-item';
+
+        let costText;
+        if (lifeMode) {
+            costText = 'FREE 💖';
+        } else if (item.cost === 'ALL') {
+            costText = 'ALL HEARTS 💖';
+        } else {
+            costText = `${item.cost} 💖`;
+        }
+
+        div.innerHTML = `
+            <h3>${item.name}</h3>
+            <div class="shop-cost">${costText}</div>
+            <p>${item.id === 'nothing'
+                    ? 'Click if you want nothing 😒'
+                    : (lifeMode ? 'Free attachment for life' : 'Click to buy')}
+            </p>
+        `;
+
+        div.onclick = () => buyItem(item);
+        container.appendChild(div);
+    });
+}
+
+function buyItem(item) {
+    // If we are in attachments-for-life mode: everything is free
+    if (lifeMode && item.id !== 'nothing') {
+        showPopup('lifeFreePopup');
+        if (typeof launchHearts === 'function') launchHearts(20);
+        return;
+    }
+
+    // Handle "Nothing" click – reveal Life with me option
+    if (item.id === 'nothing') {
+        lifeVisible = true;
+        showPopup('nothingPopup');
+        initShop(); // re-render to show Life with me card
+        return;
+    }
+
+    // Handle Life with me selection
+    if (item.id === 'life') {
+        if (hearts === originalHearts && hearts > 0) {
+            // She saved all hearts -> success flow
+            showPopup('lifeLovePopup');
+        } else {
+            // She already spent something
+            showPopup('retryPopup');
+        }
+        return;
+    }
+
+    // Normal items (kisses, hugs, etc.) before lifeMode
+    if (hearts >= item.cost) {
+        hearts -= item.cost;
+        updateHearts();
+        if (item.popup) showPopup(item.popup);
+        if (typeof launchHearts === 'function') launchHearts(30);
+    } else {
+        alert('Need more hearts! Play quiz or memory game 💖');
+    }
+}
+
+function showPopup(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'flex';
+}
+
+function closePopup(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+}
+
+// Called from popup buttons
+function proceedLifeMode() {
+    // switch to attachments for life: everything free, hearts no longer used
+    lifeMode = true;
+    lifeVisible = false;  // hide Life with me card, she already chose it
+    const lp = document.getElementById('lifeLovePopup');
+    if (lp) lp.style.display = 'none';
+    initShop();
+}
+
+function retryReshop() {
+    const rp = document.getElementById('retryPopup');
+    if (rp) rp.style.display = 'none';
+    // optional: reset hearts to 0 so she can replay games
+    // hearts = 0; updateHearts();
+    // or just close popup and let her earn more hearts
+}
+
+// initialize shop only on shop page (keep your existing DOMContentLoaded hook)
+
 
 function initShop() {
     updateHearts();
@@ -350,3 +478,4 @@ document.addEventListener('DOMContentLoaded', () => {
         initMemoryGame();
     }
 });
+
