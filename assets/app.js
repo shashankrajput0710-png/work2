@@ -497,15 +497,17 @@ function checkMatch() {
 // ===== PAGE INIT =====
 document.addEventListener('DOMContentLoaded', () => {
     updateHearts();
-
     const path = window.location.pathname;
     if (path.includes('quiz.html')) {
-        // quiz page – nothing extra, buttons call startQuiz()
+        // quiz page
     } else if (path.includes('shop.html')) {
         initShop();
     } else if (path.includes('memory-game.html')) {
         initMemoryGame();
+    } else if (path.includes('photos.html')) {
+        loadPhotos();
     }
 });
+
 
 
